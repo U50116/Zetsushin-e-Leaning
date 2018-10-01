@@ -25,21 +25,24 @@ class AlphaActivity : AppCompatActivity() {
         val x = Array(20,{i->i}).toList()
         Collections.shuffle(x)
         val y = x.toIntArray()
+
+
         for(num in y.indices) {
             //画像レイアウト
             val r = resources.getIdentifier("q" + (y[num]+1) + "_image", "drawable", packageName) //drawableの画像指定
+            //変数を使って、取得してくる数字ごとに取ってくる画像を変える
             val imageView = ImageView(this)
             imageView.setImageResource(r) //imageViewに画像設定
             @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) //エラー回避
             imageView.id = 1 + num * 2
-            val param1 = RelativeLayout.LayoutParams(740, 700)
+            val param1 = RelativeLayout.LayoutParams( 700, 740)
             if(num==0){
                 param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
                 param1.addRule(RelativeLayout.ALIGN_PARENT_TOP)
-                param1.setMargins(-50, 150, 0, 0)
+                param1.setMargins(0, 150, 0, 0)
             }else {
                 param1.addRule(RelativeLayout.BELOW, 1 + (num - 1) * 2)
-                param1.addRule(RelativeLayout.ALIGN_LEFT, 1 + (num - 1) * 2)
+                param1.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 1 + (num - 1) * 2)
                 param1.setMargins(0, 150, 0, 0)
             }
 
@@ -72,7 +75,7 @@ class AlphaActivity : AppCompatActivity() {
             radioGroup.addView(radioButton2)
             radioGroup.addView(radioButton3)
             radioGroup.addView(radioButton4)
-            val param2 = RelativeLayout.LayoutParams(WC, WC)
+            val param2 = RelativeLayout.LayoutParams(WC,WC)//w:Int,h:Int
             param2.addRule(RelativeLayout.RIGHT_OF, 1 + num * 2)
             param2.addRule(RelativeLayout.ALIGN_TOP, 1 + num * 2)
             param2.setMargins(0, 50, 0, 0)
@@ -83,7 +86,21 @@ class AlphaActivity : AppCompatActivity() {
                 radioButton3.id->{}
                 radioButton4.id->{}
             }
+
+
         }
+
+        val button = Button(this)//ここから
+        @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH) //エラー回避
+        button.text = "次へ"
+        button.textSize = 32.0f
+        val param3 = RelativeLayout.LayoutParams(500,200)
+        param3.addRule(RelativeLayout.BELOW,39)
+        param3.addRule(RelativeLayout.CENTER_IN_PARENT)
+        param3.setMargins(0, 100, 0, 100)
+        relativeLayout.addView(button,param3)//ここまでボタンの追加
     }
+
+
 
 }

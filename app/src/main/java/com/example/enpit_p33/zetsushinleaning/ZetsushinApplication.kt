@@ -6,7 +6,6 @@ import io.realm.Realm
 class ZetsushinApplication : Application(){
     override fun onCreate(){
         super.onCreate()
-
         Realm.init(this)
     }
 }

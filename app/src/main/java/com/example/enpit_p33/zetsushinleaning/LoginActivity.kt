@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onNextButtonTapped(){
-        val intent = Intent(this, AlphaActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)//遷移先のActivityを変更(2018/9/26)
 
         val id = user_id.text.toString()
         val pass = user_password.text.toString()

@@ -18,7 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateActivity" />
-        <activity android:name=".AlphaActivity"></activity>
+        <activity android:name=".AlphaActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".BetaActivity" />
+        <activity android:name=".PastdataActivity"></activity>
     </application>
 
 </manifest>
